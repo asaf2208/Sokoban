@@ -1,0 +1,11 @@
+dast:
+  stage: dast
+  variables:
+    GIT_STRATEGY: none
+  allow_failure: true
+  script:
+    - export DAST_WEBSITE=${DAST_WEBSITE:-$(cat environment_url.txt)}
+    - echo $DAST_WEBSITE
+  artifacts:
+    reports:
+      dast: gl-dast-report.json
