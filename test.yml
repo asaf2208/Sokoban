@@ -14,6 +14,7 @@ dast:
     - echo $DAST_WEBSITE
     - curl -I $DAST_WEBSITE 2>&1 | awk '/HTTP\// {print $2}'
     - curl http://zap.40.86.86.149.xip.io/JSON/spider/action/scan/?&url=${DAST_WEBSITE}&recurse=true
+    - curl http://zap.40.86.86.149.xip.io/JSON/spider/action/scan/?&url=https://google-gruyere.appspot.com/616875504767772742617246836618069426023/&recurse=true
   artifacts:
     reports:
       dast: gl-dast-report.json
