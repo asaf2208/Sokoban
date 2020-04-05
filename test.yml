@@ -12,7 +12,7 @@ dast:
   script:
     - export DAST_WEBSITE=${DAST_WEBSITE:-$(cat environment_url.txt)}
     - echo $DAST_WEBSITE
-    - curl -I $DAST_WEBSITE 2>&1 | awk '/HTTP\// {print $2}'
+    - curl -I "https://raw.githubusercontent.com/asafbenhaim/sokoban/master/test.yml" 2>&1 | awk '/HTTP\// {print $2}'
   artifacts:
     reports:
       dast: gl-dast-report.json
