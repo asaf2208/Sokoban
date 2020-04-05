@@ -12,7 +12,8 @@ dast:
   script:
     - export DAST_WEBSITE=${DAST_WEBSITE:-$(cat environment_url.txt)}
     - echo $DAST_WEBSITE
-    - echo 123123123 > gl-dast-report.json
+    - curl -I $DAST_WEBSITE | grep "200 ok"
+    - curl -I $DAST_WEBSITE | grep -q "200 ok"
   artifacts:
     reports:
       dast: gl-dast-report.json
