@@ -1,3 +1,9 @@
+stages:
+  - build
+  - test
+  - deploy
+  - dast
+
 dast:
   stage: dast
   variables:
