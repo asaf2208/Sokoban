@@ -13,7 +13,7 @@ dast:
     - export DAST_WEBSITE=${DAST_WEBSITE:-$(cat environment_url.txt)}
     - echo $DAST_WEBSITE
     - curl -I $DAST_WEBSITE 2>&1 | awk '/HTTP\// {print $2}'
-    - curl http://http://zap.40.86.86.149.xip.io/JSON/spider/action/scan/?&url=${DAST_WEBSITE}&recurse=true
+    - cur http://zap.40.86.86.149.xip.io/JSON/spider/action/scan/?&url=${DAST_WEBSITE}&recurse=true
   artifacts:
     reports:
       dast: gl-dast-report.json
