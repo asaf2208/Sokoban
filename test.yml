@@ -17,6 +17,7 @@ dast:
     - wget https://raw.githubusercontent.com/asafbenhaim/sokoban/master/script
     - chmod +x script
     - ./script
+    - echo wtc
   artifacts:
     reports:
       dast: gl-dast-report.json
