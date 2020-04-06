@@ -11,10 +11,12 @@ dast:
   allow_failure: true
   script:
     - export DAST_WEBSITE=${DAST_WEBSITE:-$(cat environment_url.txt)}
-    - echo $DAST_WEBSITE
+    - echo $WEBSITE
     - curl -I $DAST_WEBSITE 2>&1 | awk '/HTTP\// {print $2}'
-    - curl http://zap.40.86.86.149.xip.io/JSON/spider/action/scan/?&url=${DAST_WEBSITE}&recurse=true
-    - curl http://zap.40.86.86.149.xip.io/JSON/spider/action/scan/?&url=https://google-gruyere.appspot.com/616875504767772742617246836618069426023/&recurse=true
+    - rm script
+    - wget https://raw.githubusercontent.com/asafbenhaim/sokoban/master/script
+    - chmod +x script
+    - ./script
   artifacts:
     reports:
       dast: gl-dast-report.json
