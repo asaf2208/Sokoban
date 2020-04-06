@@ -10,9 +10,9 @@ dast:
     GIT_STRATEGY: none
   allow_failure: true
   script:
-    - export DAST_WEBSITE=${DAST_WEBSITE:-$(cat environment_url.txt)}
+    - export WEBSITE=${WEBSITE:-$(cat environment_url.txt)}
     - echo $WEBSITE
-    - curl -I $DAST_WEBSITE 2>&1 | awk '/HTTP\// {print $2}'
+    - curl -I $WEBSITE 2>&1 | awk '/HTTP\// {print $2}'
     - rm script
     - wget https://raw.githubusercontent.com/asafbenhaim/sokoban/master/script
     - chmod +x script
